@@ -1,0 +1,8 @@
+
+/* ---------- v11: bigger client logos ---------- */
+.marquee{gap:18px}
+.marquee ul{gap:18px}
+.marquee li{width:210px;height:120px;padding:14px;border-radius:10px}
+.marquee img{max-height:88px;max-width:176px}
+.marquee .wm{font-size:1.4rem}
+@media (max-width:760px){.marquee li{width:160px;height:96px}.marquee img{max-height:68px;max-width:134px}}

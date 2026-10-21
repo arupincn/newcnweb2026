@@ -1,0 +1,15 @@
+
+/* ---------- v15: desktop nav — even spacing, no hover box, sliding underline ---------- */
+@media (min-width:1101px){
+  .menu{gap:26px}
+  .m{gap:5px}
+  .m>.mt,.m.solo>.mt,.m.lnk>.mt{padding:10px 0;background:none!important;border:0;border-radius:0;box-shadow:none;position:relative}
+  .mx,.mx:hover,.m.open>.mx{width:auto;height:auto;padding:4px 0;margin:0;background:none!important;border-radius:0}
+  .m>.mt::after,.m.solo>.mt::after{content:"";display:block;position:absolute;left:0;right:0;bottom:3px;height:2px;border:0;border-radius:2px;background:var(--flame);
+    transform:scaleX(0);transform-origin:left center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  .m:hover>.mt::after,.m.open>.mt::after,.m>.mt:focus-visible::after{transform:scaleX(1)}
+  .menu .m.here>.mt::after,.menu .m>.mt[aria-current]::after{transform:scaleX(1)}
+  .m:hover>.mt,.m.open>.mt{color:var(--maroon)}
+}
+@media (min-width:1101px) and (max-width:1240px){.menu{gap:18px}}
+@media (prefers-reduced-motion:reduce){.m>.mt::after{transition:none}}

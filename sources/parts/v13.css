@@ -1,0 +1,34 @@
+
+/* ---------- v13: v11 look restored; keeps only the functional additions ---------- */
+/* header: label opens the section page; arrow opens the menu */
+.m{display:flex;align-items:center}
+.m>.mt{padding-right:4px}
+.m.solo>.mt{padding-right:10px}
+.mx{display:inline-grid;place-items:center;width:22px;height:36px;border:0;background:none;border-radius:60px;cursor:pointer;color:var(--flame);font-size:.72rem;padding:0;margin-right:6px}
+.mx i{font-style:normal;transition:transform .15s;display:block}
+.mx:hover,.m.open>.mx{background:rgba(255,255,255,.55)}
+.m.open>.mx i{transform:rotate(180deg)}
+@media (hover:hover) and (min-width:1101px){.m:hover>.mx i{transform:rotate(180deg)}}
+@media (max-width:1100px){
+  .m{flex-wrap:wrap}
+  .m>.mt{flex:1;width:auto;border-radius:12px 0 0 12px}
+  .m.solo>.mt{border-radius:12px}
+  .mx{width:52px;height:auto;align-self:stretch;border-radius:0 12px 12px 0;background:rgba(255,255,255,.4);margin:0;font-size:.9rem}
+  .m>.sub{flex-basis:100%}
+}
+/* platform logos (Performance) */
+.plats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:18px}
+.plat{background:#fff;border:1px solid #f0e2b8;border-radius:14px;padding:16px 10px 12px;display:grid;justify-items:center;gap:10px}
+.plat svg,.plat img{width:44px;height:44px;display:block;object-fit:contain}
+.plat span{font-weight:600;font-size:.88rem;color:var(--ink)}
+@media (max-width:760px){.plats{grid-template-columns:repeat(3,minmax(0,1fr))}.plat svg,.plat img{width:36px;height:36px}}
+@media (max-width:380px){.plats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* FAQ + mobile borders */
+.faq details{border:1px solid #f0e2b8}
+.white .faq details{background:var(--cream)}
+@media (max-width:760px){
+  .pkg{padding:16px;border-radius:16px}
+  .pkg .tp-head{padding:16px}
+  .pkg-jump{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .pkg-jump a{flex:none}
+}

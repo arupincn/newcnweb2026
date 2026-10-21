@@ -1,0 +1,51 @@
+/* ---------- v6: team photo hero, leaders, awards, video testimonials ---------- */
+.hero-split{display:grid!important;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:center;justify-items:stretch!important}
+.hero-copy{display:grid;gap:22px;justify-items:start}
+.home-hero .hero-art{display:none}
+.hero-team{margin:0;position:relative}
+.hero-team img{width:100%;height:auto;display:block;border-radius:18px;border:6px solid #fff;box-shadow:0 24px 48px -24px rgba(0,0,0,.45);transform:rotate(1.2deg)}
+.hero-team figcaption{margin-top:14px;font-size:.85rem}
+.hero-team figcaption b{font-weight:700;color:var(--maroon)}
+.hero-team .sticker{position:absolute;left:-28px;bottom:26px;width:92px;height:92px;background:center/contain no-repeat;transform:rotate(-10deg)}
+.leaders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.leader{margin:0;background:var(--cream);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:120px minmax(0,1fr)}
+.leader img{width:120px;height:100%;min-height:170px;object-fit:cover;display:block}
+.leader figcaption{padding:16px;display:grid;gap:4px;align-content:start}
+.leader b{font:700 1.5rem/1 var(--f-display);text-transform:uppercase;color:var(--maroon)}
+.leader span{font:600 .7rem/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--flame)}
+.leader p{font-size:.85rem;line-height:1.5;margin-top:4px}
+.aw-feat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.awf{margin:0;background:#fff;border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.awf.big{grid-column:span 2;grid-row:span 2}
+.awf img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#eee}
+.awf.big img{aspect-ratio:auto;height:100%;max-height:420px;object-fit:cover}
+.awf figcaption{padding:14px 16px;display:grid;gap:4px;align-content:start}
+.awf b{font:700 1.3rem/1 var(--f-display);text-transform:uppercase;color:var(--maroon)}
+.awf.big b{font-size:1.9rem}
+.awf span:last-child{font-size:.85rem}
+.awf .k{color:var(--flame)}
+.aw-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.aw{margin:0;background:#fff;border-radius:12px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:10px}
+.aw img{width:72px;height:96px;object-fit:contain;background:#ececec;border-radius:8px}
+.aw b{display:block;font:600 .82rem/1.3 var(--f-body)}
+.aw span{display:block;font-size:.78rem;color:#6d5d3c;margin-top:3px}
+.vts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.vt{margin:0;background:#000;color:#fff;border-radius:14px;overflow:hidden}
+.vplay{display:block;width:100%;position:relative;padding:0;border:0;background:#111;cursor:pointer;aspect-ratio:16/9}
+.vplay img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .2s}
+.vplay:hover img{opacity:1}
+.pbtn{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:var(--flame);color:#fff;display:grid;place-items:center;font-size:1.3rem;padding-left:4px}
+.vt iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.vt figcaption{padding:14px 16px;display:grid;gap:3px}
+.vt b{font:700 1.5rem/1 var(--f-display);text-transform:uppercase;color:var(--yellow)}
+.vt span{font-size:.85rem;color:#ddd}
+.vt a{font-size:.8rem;color:var(--flame);font-weight:600;text-decoration:none;margin-top:4px}
+@media (max-width:980px){.aw-feat{grid-template-columns:repeat(2,minmax(0,1fr))}.aw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.leaders{grid-template-columns:1fr}}
+@media (max-width:860px){.hero-split{grid-template-columns:1fr}.vts{grid-template-columns:1fr}.hero-team .sticker{display:none}}
+@media (max-width:520px){.aw-feat,.aw-grid{grid-template-columns:1fr}.awf.big{grid-column:auto;grid-row:auto}}
+.aw-feat{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.awf.big{grid-column:auto!important;grid-row:auto!important}
+.awf img,.awf.big img{aspect-ratio:4/3!important;height:auto!important;max-height:none!important}
+.awf.big b{font-size:1.3rem}
+@media (max-width:980px){.aw-feat{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:520px){.aw-feat{grid-template-columns:1fr!important}}

@@ -1,0 +1,27 @@
+
+/* ---------- v10: stacked single-column packages ---------- */
+.pkgs{display:grid;gap:28px}
+.pkg{background:#fff;border-radius:20px;padding:clamp(18px,3vw,36px);display:grid;gap:22px;scroll-margin-top:150px}
+.cream .pkg,.white .pkg{box-shadow:0 0 0 1px #f0e2b8}
+.white .pkg{background:var(--cream)}
+.white .pkg .tp-get{background:#fff}
+.pkg .tp-head{border-radius:14px;padding:clamp(18px,2.5vw,28px)}
+.pkg .tp-head h3{font-size:clamp(2rem,4vw,3.2rem)}
+.pkg .tp-head p{font-size:1.05rem;margin:0}
+.pkg-block h4{margin:0 0 12px;font:600 .74rem/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--flame)}
+.pkg-block .acts{max-width:72ch}
+.pkg .tp-get{border-radius:14px;padding:clamp(16px,2.5vw,24px)}
+.pkg-meta{display:grid;gap:0;margin:0}
+.pkg-meta div{border-top:2px solid var(--ink);padding:10px 0 12px}
+.pkg-meta dt{font:600 .72rem/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#7a6a4a}
+.pkg-meta dd{margin:4px 0 0;font-weight:600;font-size:1rem}
+.pkg .note{margin:0}
+.pkg-cta{display:flex}
+.pkg-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.pkg-jump a{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);text-decoration:none;border-radius:999px;padding:8px 14px 8px 8px;font-weight:600;font-size:.9rem;border:1px solid #f0e2b8}
+.pkg-jump a span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:.75rem}
+.pkg-jump a:hover{border-color:var(--flame)}
+.white .pkg-jump a{background:var(--cream)}
+/* fix: nav .sub rule was hiding section subtitles */
+p.sub{display:block;position:static;width:auto;box-shadow:none;background:none;padding:0;border-radius:0;z-index:auto;margin-top:10px}
+.cxo-band p.sub,.planner-band p.sub{margin-bottom:22px}

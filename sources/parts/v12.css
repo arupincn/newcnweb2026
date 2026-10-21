@@ -1,0 +1,125 @@
+
+/* =====================================================================
+   v12 · design + UX pass
+   Colour roles (Indian palette, kept):
+   turmeric yellow  = ground: warmth, optimism, the Curry Nation signature
+   sindoor          = action: every primary button and link accent (deep enough for AA)
+   marigold         = celebration: decoration only, never body text
+   maroon           = trust and heritage: headings that must feel weighty
+   ===================================================================== */
+:root{--sindoor:#c93c0a;--sindoor-deep:#a8320a;--marigold:#f15922;--flame:#c93c0a;--teal:#007a94;--slate:#476c9f}
+
+/* ---- action colour: one consistent, legible CTA colour ---- */
+.btn{background:var(--sindoor);font-weight:600;font-size:.95rem;padding:13px 22px;min-height:44px}
+.btn:hover{box-shadow:0 6px 0 -2px var(--ink)}
+.btn.dark{background:#111}
+.hl,.rot{color:var(--sindoor)}
+.hero .kicker{color:var(--sindoor-deep)}
+.eyebrow::before{color:var(--sindoor)}
+.mt i{color:var(--sindoor-deep)}
+.pkg-block h4,.tp-body h4,.cmp tbody th,.pm,.awf .k,.cc-k,.leader figcaption span,.sub a.all,.faq summary::after{color:var(--sindoor)!important}
+.c-flame{background:var(--sindoor)}
+.cmp thead th.c-orange,.cmp thead th.c-orange a,.pk.c-orange,.tp-head.c-orange{color:var(--ink)}
+.cmp thead th.c-orange a{border-color:rgba(0,0,0,.4)}
+.c-teal .k,.c-green .k,.c-flame .k,.c-purple .k,.c-deep .k{color:#fff;opacity:.92}
+.c-orange .hlp{color:var(--maroon)}
+.pbtn{color:#fff!important}
+
+/* ---- header: label opens the section page; arrow opens the menu ---- */
+.m{display:flex;align-items:center}
+.m>.mt{padding-right:4px}
+.m.solo>.mt{padding-right:10px}
+.mx{display:inline-grid;place-items:center;width:30px;height:36px;border:0;background:none;border-radius:60px;cursor:pointer;color:var(--sindoor-deep);font-size:.72rem;padding:0;margin-right:4px}
+.mx i{font-style:normal;transition:transform .15s;display:block}
+.mx:hover,.m.open>.mx{background:rgba(255,255,255,.55)}
+.m.open>.mx i{transform:rotate(180deg)}
+@media (hover:hover) and (min-width:1101px){.m:hover>.mx i{transform:rotate(180deg)}}
+@media (max-width:1100px){
+  .m{flex-wrap:wrap}
+  .m>.mt{flex:1;width:auto;border-radius:12px 0 0 12px}
+  .m.solo>.mt{border-radius:12px}
+  .mx{width:52px;height:auto;align-self:stretch;border-radius:0 12px 12px 0;background:rgba(255,255,255,.4);margin:0;font-size:.9rem}
+  .m>.sub{flex-basis:100%}
+}
+
+/* ---- logo: the scalloped seal turns slowly; the lettering stays readable ---- */
+.logo{position:relative;width:76px;height:76px;flex:none;display:block;text-decoration:none;filter:drop-shadow(0 3px 0 rgba(118,24,23,.35))}
+.logo .lb,.logo .lt{position:absolute;inset:0;width:100%;height:100%;display:block}
+.logo .lb{animation:seal 28s linear infinite;transition:transform .4s}
+.logo:hover .lb{animation-duration:4s}
+.logo:hover{transform:rotate(-6deg) scale(1.06);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes seal{to{transform:rotate(360deg)}}
+@media (max-width:1100px){.logo{width:64px;height:64px}}
+
+/* ---- scroll feedback: progress thread in marigold ---- */
+.progress{position:fixed;left:0;top:0;height:4px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--marigold),var(--sindoor));z-index:50;pointer-events:none}
+
+/* ---- reveal on scroll (only when JS is running and motion is welcome) ---- */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.logo .lb{animation:none}.progress{display:none}}
+
+/* ---- Indian signature: jhalar (scalloped festoon) edges ---- */
+.jhalar{position:relative}
+.jhalar::after{content:"";position:absolute;left:0;right:0;bottom:-11px;height:12px;z-index:2;pointer-events:none;
+  background:radial-gradient(circle at 12px 0,var(--jc,var(--yellow)) 11px,transparent 11.5px) 0 0/24px 12px repeat-x}
+.hero.jhalar{--jc:var(--yellow)}
+.foot{position:relative}
+.foot::before{content:"";position:absolute;left:0;right:0;top:-11px;height:12px;background:radial-gradient(circle at 12px 12px,#000 11px,transparent 11.5px) 0 0/24px 12px repeat-x}
+.toran{display:flex;justify-content:center;gap:10px;margin:0 auto 6px;height:18px}
+.toran i{width:14px;height:18px;background:var(--marigold);clip-path:polygon(50% 100%,0 0,100% 0);display:block}
+.toran i:nth-child(3n+2){background:var(--green)}
+.toran i:nth-child(3n){background:var(--maroon)}
+
+/* ---- back to top + sticky mobile action bar ---- */
+.totop{position:fixed;right:18px;bottom:22px;width:48px;height:48px;border-radius:50%;border:0;background:#111;color:#fff;font-size:1.2rem;cursor:pointer;z-index:40;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;box-shadow:0 6px 16px -6px rgba(0,0,0,.5)}
+.totop.on{opacity:1;pointer-events:auto;transform:none}
+.mbar{display:none}
+@media (max-width:760px){
+  .mbar{display:flex;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:45;padding:8px;background:#111;border-radius:18px;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);transform:translateY(130%);transition:transform .3s}
+  .mbar.on{transform:none}
+  .mbar a{flex:1;text-align:center;padding:12px 10px;border-radius:12px;font:600 .9rem/1.2 var(--f-body);text-decoration:none;color:#fff;min-height:44px;display:grid;place-items:center}
+  .mbar a.p{background:var(--sindoor)}
+  .mbar a.s{background:rgba(255,255,255,.12)}
+  .totop{bottom:84px;right:14px;width:44px;height:44px}
+  .foot .wrap{padding-bottom:88px}
+}
+
+/* ---- platform logos (Performance) ---- */
+.plats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:18px}
+.plat{background:#fff;border:1px solid #f0e2b8;border-radius:14px;padding:16px 10px 12px;display:grid;justify-items:center;gap:10px;transition:transform .2s,box-shadow .2s}
+.plat:hover{transform:translateY(-3px);box-shadow:0 10px 20px -14px rgba(0,0,0,.45)}
+.plat svg,.plat img{width:44px;height:44px;display:block;object-fit:contain}
+.plat span{font-weight:600;font-size:.88rem;color:var(--ink)}
+@media (max-width:760px){.plats{grid-template-columns:repeat(3,minmax(0,1fr))}.plat svg,.plat img{width:36px;height:36px}}
+@media (max-width:380px){.plats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---- FAQ polish ---- */
+.faq details{border:1px solid #f0e2b8;transition:box-shadow .2s}
+.faq details[open]{box-shadow:0 10px 24px -18px rgba(0,0,0,.5)}
+.faq summary{min-height:44px}
+.white .faq details{background:var(--cream)}
+
+/* ---- reading comfort + borders on small screens ---- */
+.sec-head p.sub,.pkg-block .acts,.faq details p{max-width:68ch}
+.card,.pkg,.faq details,.cmp-wrap,.plat{border-color:#f0e2b8}
+@media (max-width:760px){
+  section{padding-block:44px}
+  .pkg{padding:16px;border-radius:16px}
+  .pkg .tp-head{padding:16px}
+  .pkg .tp-head h3{font-size:2rem;line-height:1}
+  .pkg-jump{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .pkg-jump a{flex:none}
+  .pk{border-radius:14px}
+  .hero .lede{font-size:1rem}
+  .chips span{font-size:.8rem}
+}
+
+/* highlights: sindoor everywhere, maroon where the ground is orange */
+.c-orange .hl,.c-orange .hlp,.ab.c-orange .hlp{color:var(--maroon)!important}
+.chain .end{background:var(--sindoor)}
+@media (max-width:760px){.hero .kicker{font-size:1.2rem}}
+:root{--sindoor-deep:#9a2d08}
+.vt figcaption a{color:var(--marigold)}
+@media (min-width:1101px){.mx{width:22px;margin-right:6px}}
